@@ -1,5 +1,5 @@
 'use client';
-import { SlideItem, SlideTextData } from 'pptx';
+import { SlideImageData, SlideItem, SlideTextData } from 'pptx';
 import EditorOperate from './components/editor-operate';
 import Slide from './slide/slide';
 import PptxGenJS from 'pptxgenjs';
@@ -7,15 +7,22 @@ import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
 export default function PowerpointPage() {
-  const [slide, setSlide] = useState<SlideItem[]>([]);
+  const [slide, setSlide] = useState<SlideItem[]>([
+    {
+      id: 1,
+      type: 'Image',
+      data: {
+        path: 'http://localhost:3001/images/home/hero1.png',
+      },
+    },
+  ]);
   const create = () => {
     const pptx = new PptxGenJS();
 
     const sd = pptx.addSlide();
 
-    slide
-      .filter((item) => item.type === 'Text')
-      .forEach((item, index) => {
+    slide.forEach((item, index) => {
+      if (item.type === 'Text') {
         const data = item.data as SlideTextData;
         sd.addText(data.text || 'Default', {
           x: 0,
@@ -24,7 +31,18 @@ export default function PowerpointPage() {
           h: 1,
           ...data.options,
         });
-      });
+      }
+      if (item.type === 'Image') {
+        const data = item.data as SlideImageData;
+        sd.addImage({
+          path: data.path,
+          x: 0,
+          y: index,
+          w: typeof data.w === 'string' ? data.w : `${data.w || 100}%`,
+          h: typeof data.h === 'string' ? data.h : `${data.h || 100}%`,
+        });
+      }
+    });
 
     pptx.writeFile({ fileName: `demo-${Date.now()}.pptx` });
   };

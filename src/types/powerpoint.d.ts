@@ -6,7 +6,7 @@ declare module 'pptx' {
     options?: PptxGenJS.TextPropsOptions;
   }
 
-  export interface SlideImageData {}
+  export interface SlideImageData extends PptxGenJS.ImageProps {}
 
   export interface SlideChartsData {}
 
