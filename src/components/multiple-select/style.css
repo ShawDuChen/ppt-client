@@ -1,0 +1,37 @@
+.ui-multiple-select {
+  @apply flex h-auto w-full cursor-text flex-wrap rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.ui-multiple-select .tag-item {
+  margin-right: 2px;
+  padding: 0 8px;
+}
+
+.rc-select-multiple .rc-select-selector .rc-select-selection-search-input {
+  background: transparent;
+}
+
+.rc-select .rc-select-selection-placeholder {
+  @apply -ml-1.5 text-muted-foreground opacity-100;
+}
+
+.rc-select-multiple .rc-select-selector {
+  @apply w-full border-none;
+}
+
+.rc-select-multiple .rc-select-selector .rc-select-selection-overflow {
+  @apply w-auto;
+}
+
+.ui-multiple-select-dropdown {
+  @apply z-40 rounded-md border bg-background px-3 py-2 text-sm;
+  border-color: hsl(var(--border));
+}
+
+.ui-multiple-select-dropdown .rc-select-item-option {
+  @apply cursor-pointer px-2 py-1 hover:bg-gray-100;
+}
+
+.ui-multiple-select-dropdown .rc-select-item-option-active {
+  background-color: transparent;
+}

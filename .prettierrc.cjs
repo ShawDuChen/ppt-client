@@ -1,14 +1,6 @@
 module.exports = {
-  printWidth: 120,
-  tabWidth: 2,
-  useTabs: false,
-  semi: true,
   singleQuote: true,
-  trailingComma: 'all',
-  bracketSpacing: true,
-  jsxBracketSameLine: false,
-  arrowParens: 'always',
-  proseWrap: 'preserve',
-  endOfLine: 'auto',
-  overrides: []
-}
+  tailwindConfig: './tailwind.config.ts',
+  plugins: ['prettier-plugin-tailwindcss'],
+  tailwindFunctions: ['clsx', 'cn', 'twmerge', 'cva'],
+};

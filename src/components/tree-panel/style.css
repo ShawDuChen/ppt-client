@@ -1,0 +1,13 @@
+.rc-tree .rc-tree-treenode.filter-node > .rc-tree-node-content-wrapper {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity)) !important;
+}
+
+.rc-tree-node-selected {
+  background-color: hsl(var(--border));
+  box-shadow: 0 0 0 1px hsl(var(--primary-foreground));
+}
+
+.rc-tree .rc-tree-treenode span.rc-tree-switcher {
+  background-image: none;
+}

@@ -1,0 +1,26 @@
+.styled-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #eaeaea transparent;
+  scrollbar-gutter: stable;
+}
+
+.styled-scrollbar::-webkit-scrollbar {
+  height: 0.375rem;
+  width: 0.75rem;
+}
+
+.styled-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 0.375rem;
+}
+
+@media (hover: hover) {
+  .styled-scrollbar:hover::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    background-color: hsl(var(--border));
+    background-clip: content-box;
+  }
+}
