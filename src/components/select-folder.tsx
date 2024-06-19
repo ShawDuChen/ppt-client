@@ -10,7 +10,6 @@ import { cn } from '@/lib/utils';
 
 const listDir = async (
   id: number,
-
 ): Promise<{
   id: number;
   name: string;
@@ -28,9 +27,11 @@ const listDir = async (
     pinned: boolean;
   }[];
 }> => {
-  const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/workspace/list?${new URLSearchParams({
-    id: id.toString(),
-  })}`;
+  const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/workspace/list?${new URLSearchParams(
+    {
+      id: id.toString(),
+    },
+  )}`;
 
   const resp = await fetchClient({ url });
 

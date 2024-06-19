@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write src/**/*.{ts,tsx,js,jsx}"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -50,6 +51,7 @@
     "next": "14.2.3",
     "next-auth": "5.0.0-beta.17",
     "openchemlib": "^8.11.0",
+    "pptxgenjs": "^3.12.0",
     "rc-pagination": "^3.7.0",
     "rc-select": "^14.13.3",
     "rc-tree": "^5.8.7",
