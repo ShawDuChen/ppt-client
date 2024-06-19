@@ -10,9 +10,10 @@ export default function PowerpointPage() {
   const [slide, setSlide] = useState<SlideItem[]>([
     {
       id: 1,
-      type: 'Image',
+      type: 'Media',
       data: {
-        path: 'http://localhost:3001/images/home/hero1.png',
+        type: 'audio',
+        path: 'http://localhost:3001/medias/song.mp3',
       },
     },
   ]);
@@ -21,27 +22,32 @@ export default function PowerpointPage() {
 
     const sd = pptx.addSlide();
 
-    slide.forEach((item, index) => {
-      if (item.type === 'Text') {
-        const data = item.data as SlideTextData;
-        sd.addText(data.text || 'Default', {
-          x: 0,
-          y: index,
-          w: '100%',
-          h: 1,
-          ...data.options,
-        });
-      }
-      if (item.type === 'Image') {
-        const data = item.data as SlideImageData;
-        sd.addImage({
-          path: data.path,
-          x: 0,
-          y: index,
-          w: typeof data.w === 'string' ? data.w : `${data.w || 100}%`,
-          h: typeof data.h === 'string' ? data.h : `${data.h || 100}%`,
-        });
-      }
+    // slide.forEach((item, index) => {
+    //   if (item.type === 'Text') {
+    //     const data = item.data as SlideTextData;
+    //     sd.addText(data.text || 'Default', {
+    //       x: 0,
+    //       y: index,
+    //       w: '100%',
+    //       h: 1,
+    //       ...data.options,
+    //     });
+    //   }
+    //   if (item.type === 'Image') {
+    //     const data = item.data as SlideImageData;
+    //     sd.addImage({
+    //       path: data.path,
+    //       x: 0,
+    //       y: index,
+    //       w: typeof data.w === 'string' ? data.w : `${data.w || 100}%`,
+    //       h: typeof data.h === 'string' ? data.h : `${data.h || 100}%`,
+    //     });
+    //   }
+    // });
+
+    sd.addMedia({
+      type: 'audio',
+      path: 'http://localhost:3001/medias/song.mp3',
     });
 
     pptx.writeFile({ fileName: `demo-${Date.now()}.pptx` });

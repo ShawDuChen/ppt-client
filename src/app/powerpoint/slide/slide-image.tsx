@@ -16,7 +16,7 @@ export default function SlideImage({ data }: { data?: SlideImageData }) {
           }}
         />
       ) : (
-        <div className="py-2 text-center">
+        <div className="py-4">
           <ImageIcon size={20} className="mx-auto" />
         </div>
       )}

@@ -10,7 +10,7 @@ declare module 'pptx' {
 
   export interface SlideChartsData {}
 
-  export interface SlideMediaData {}
+  export interface SlideMediaData extends PptxGenJS.MediaProps {}
 
   export interface SlideShapesData {}
 

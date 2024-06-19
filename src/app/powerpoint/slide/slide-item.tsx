@@ -1,4 +1,9 @@
-import { SlideImageData, SlideItemProps, SlideTextData } from 'pptx';
+import {
+  SlideImageData,
+  SlideItemProps,
+  SlideMediaData,
+  SlideTextData,
+} from 'pptx';
 import SlideText from './slide-text';
 import SlideImage from './slide-image';
 import SlideCharts from './slide-charts';
@@ -23,7 +28,7 @@ export default function SlideItem({
         {type === 'Text' && <SlideText data={data as SlideTextData} />}
         {type === 'Image' && <SlideImage data={data as SlideImageData} />}
         {type === 'Charts' && <SlideCharts data={data} />}
-        {type === 'Media' && <SlideMedia data={data} />}
+        {type === 'Media' && <SlideMedia data={data as SlideMediaData} />}
         {type === 'Table' && <SlideTables data={data} />}
         {type === 'Shapes' && <SlideShapes data={data} />}
       </div>
