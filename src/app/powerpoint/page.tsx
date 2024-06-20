@@ -1,5 +1,6 @@
 'use client';
 import {
+  SlideChartsData,
   SlideImageData,
   SlideItem,
   SlideMediaData,
@@ -16,15 +17,52 @@ export default function PowerpointPage() {
   const [slide, setSlide] = useState<SlideItem[]>([
     {
       id: 1,
-      type: 'Table',
+      type: 'Charts',
       data: {
-        rows: [
-          ['Cell0', 'Cell1', 'Cell2', 'Cell3', 'Cell4'],
-          ['Data-0-0', 'Data-0-1', 'Data-0-2', 'Data-0-3', 'Data-0-4'],
-          ['Data-1-0', 'Data-1-1', 'Data-1-2', 'Data-1-3', 'Data-1-4'],
-          ['Data-2-0', 'Data-2-1', 'Data-2-2', 'Data-2-3', 'Data-2-4'],
-          ['Data-3-0', 'Data-3-1', 'Data-3-2', 'Data-3-3', 'Data-3-4'],
-          ['Data-4-0', 'Data-4-1', 'Data-4-2', 'Data-4-3', 'Data-4-4'],
+        type: 'bar',
+        data: [
+          {
+            name: 'Actual Sales',
+            labels: [
+              'Jan',
+              'Feb',
+              'Mar',
+              'Apr',
+              'May',
+              'Jun',
+              'Jul',
+              'Aug',
+              'Sep',
+              'Oct',
+              'Nov',
+              'Dec',
+            ],
+            values: [
+              1500, 4600, 5156, 3167, 8510, 8009, 6006, 7855, 12102, 12789,
+              10123, 15121,
+            ],
+          },
+          {
+            name: 'Projected Sales',
+            labels: [
+              'Jan',
+              'Feb',
+              'Mar',
+              'Apr',
+              'May',
+              'Jun',
+              'Jul',
+              'Aug',
+              'Sep',
+              'Oct',
+              'Nov',
+              'Dec',
+            ],
+            values: [
+              1000, 2600, 3456, 4567, 5010, 6009, 7006, 8855, 9102, 10789,
+              11123, 12121,
+            ],
+          },
         ],
       },
     },
@@ -76,6 +114,16 @@ export default function PowerpointPage() {
               ? data.options.w
               : `${data.options?.w || 100}%`,
           h: (data.rows?.length || 1) / 3 || 1,
+          ...data.options,
+        });
+      }
+      if (item.type === 'Charts') {
+        const data = item.data as SlideChartsData;
+        sd.addChart(data.type, data.data, {
+          x: 0,
+          y: index,
+          w: '100%',
+          h: '100%',
           ...data.options,
         });
       }

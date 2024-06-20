@@ -1,4 +1,5 @@
 import {
+  SlideChartsData,
   SlideImageData,
   SlideItemProps,
   SlideMediaData,
@@ -28,7 +29,7 @@ export default function SlideItem({
       >
         {type === 'Text' && <SlideText data={data as SlideTextData} />}
         {type === 'Image' && <SlideImage data={data as SlideImageData} />}
-        {type === 'Charts' && <SlideCharts data={data} />}
+        {type === 'Charts' && <SlideCharts data={data as SlideChartsData} />}
         {type === 'Media' && <SlideMedia data={data as SlideMediaData} />}
         {type === 'Table' && <SlideTables data={data as SlideTableData} />}
         {type === 'Shapes' && <SlideShapes data={data} />}

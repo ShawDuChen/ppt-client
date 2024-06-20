@@ -8,7 +8,11 @@ declare module 'pptx' {
 
   export interface SlideImageData extends PptxGenJS.ImageProps {}
 
-  export interface SlideChartsData {}
+  export interface SlideChartsData<T = any> {
+    type: PptxGenJS.CHART_NAME;
+    data: T[];
+    options?: PptxGenJS.IChartOpts;
+  }
 
   export interface SlideMediaData extends PptxGenJS.MediaProps {}
 
