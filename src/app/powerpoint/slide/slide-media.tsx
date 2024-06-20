@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { FileAudioIcon, VideoIcon } from 'lucide-react';
+import { FilmIcon } from 'lucide-react';
 import { SlideMediaData } from 'pptx';
 
 export default function SlideMedia({ data }: { data?: SlideMediaData }) {
@@ -7,23 +7,19 @@ export default function SlideMedia({ data }: { data?: SlideMediaData }) {
     <div className={cn('relative')}>
       {data?.type === 'audio' ? (
         <audio src={data.path} className="h-12" controls />
-      ) : (
-        <div className="p-4">
-          <FileAudioIcon className="mx-auto" />
-        </div>
-      )}
-      {data?.type === 'video' ? (
+      ) : data?.type === 'video' ? (
         <video
           src={data.path}
-          className="h-12"
+          className="h-72 w-full"
           controls
           autoPlay={false}
           loop={false}
           muted={false}
+          poster={data.cover} // 要求使用base64字符串，否则pptx无法导出成功
         />
       ) : (
         <div className="p-4">
-          <VideoIcon className="mx-auto" />
+          <FilmIcon className="mx-auto" />
         </div>
       )}
     </div>

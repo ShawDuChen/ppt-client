@@ -14,7 +14,10 @@ declare module 'pptx' {
 
   export interface SlideShapesData {}
 
-  export interface SlideTableData {}
+  export interface SlideTableData {
+    rows?: PptxGenJS.TableRow[];
+    options?: PptxGenJS.TableProps;
+  }
 
   export type SlideItemType =
     | 'Text'
